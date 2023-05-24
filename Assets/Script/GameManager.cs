@@ -5,7 +5,8 @@ using TMPro;
 public class GameManager : MonoBehaviour
 {
 
-    public TextMeshProUGUI livesandScore;
+    public TextMeshProUGUI lives;
+    public TextMeshProUGUI scores;
     public int health;
     public int score;
 
@@ -21,7 +22,11 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    public void PointUp()
+    {
+        score++;
+        UpdateHealthAndScore();
+    }
     public void TakeDamage()
     {
         health--;
@@ -30,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     void UpdateHealthAndScore()
     {
-        livesandScore.text = $"Lives: {health}";
+        lives.text = $"Lives: {health}";
+        scores.text = $"Score: {score}";
     }
 }

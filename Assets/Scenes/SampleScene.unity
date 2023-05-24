@@ -312,6 +312,9 @@ MonoBehaviour:
   gm: {fileID: 1517552726}
   c2D: {fileID: 663485542}
   rb: {fileID: 663485541}
+  living: {fileID: 21300000, guid: 6fee6268bf5009a4c8b4bb306d1ef14a, type: 3}
+  dead: {fileID: 21300000, guid: 4ba594421ef2a77418c2585e763d3472, type: 3}
+  isPowered: 0
 --- !u!50 &663485541
 Rigidbody2D:
   serializedVersion: 4
@@ -754,7 +757,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec766f06e0264649971b1d972bf3bbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  livesandScore: {fileID: 1540769716}
+  lives: {fileID: 1540769716}
+  scores: {fileID: 974861511}
   health: 5
   score: 0
 --- !u!4 &1517552727

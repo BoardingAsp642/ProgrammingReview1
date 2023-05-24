@@ -11,10 +11,14 @@ public class Player : MonoBehaviour
     public GameManager gm;
     public BoxCollider2D c2D;
     public Rigidbody2D rb;
+    public Sprite living;
+    public Sprite dead;
+    public bool isPowered;
     // Start is called before the first frame update
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -38,8 +42,23 @@ public class Player : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
             gm.TakeDamage();
+            StartCoroutine(StopYouHaveViolatedTheLawPayTheCourtAFineOrServeYourSenctence());
         }
     }
+
+    IEnumerator StopYouHaveViolatedTheLawPayTheCourtAFineOrServeYourSenctence()
+    {
+        float curSpeed = speed;
+        speed = 0;
+        GetComponent<SpriteRenderer>().sprite = dead;
+
+        yield return new WaitForSeconds(3);
+        speed = curSpeed;
+        transform.position = new Vector2(Random.Range(-11, 11), Random.Range(-6, 6));
+        GetComponent<SpriteRenderer>().sprite = living;
+    }
+
+
 
 
 
