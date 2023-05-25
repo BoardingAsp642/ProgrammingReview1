@@ -7,8 +7,22 @@ public class Power : Pickup
     public bool isPowered;
     public override void Activate()
     {
-        //if()
+
+        StartCoroutine(Time());
+
     }
+
+
+    IEnumerator Time()
+    {
+        player.isPowered = true;
+   
+        yield return new WaitForSeconds(5);
+        player.isPowered = false;
+    }
+
+    
+
 
 
 }

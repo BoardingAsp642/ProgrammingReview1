@@ -10,7 +10,7 @@ public class Points : Pickup
     // Start is called before the first frame update
     void Start()
     {
-        Drip();
+
     }
 
     // Update is called once per frame
@@ -24,13 +24,7 @@ public class Points : Pickup
         gm.PointUp();
     }
 
-    public void Drip()
-    {
-        while(true)
-        {
-            Debug.Log("Drip.");
-        }
-    }
+
 
 
 

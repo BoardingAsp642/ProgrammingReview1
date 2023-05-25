@@ -8,6 +8,7 @@ public abstract class Pickup : MonoBehaviour
 
     public BoxCollider2D bc;
     public SpriteRenderer sr;
+    public Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +33,21 @@ public abstract class Pickup : MonoBehaviour
         yield return new WaitForSeconds(5);
     }
 
-     public void OnTriggerEnter2D()
+    /* public void OnTriggerEnter2D()
     {
-        Activate();
-        StartCoroutine(DelayedDestroy());
+        if()
+
+    }*/
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            player = collision.GetComponent<Player>();
+            Activate();
+            StartCoroutine(DelayedDestroy());
+        }
     }
-
-
 
 
 
